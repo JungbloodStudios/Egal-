@@ -4,218 +4,352 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jungblood Studios | LEGO Star Wars MOCs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f4f6f9;
-            --card-bg: #ffffff;
-            --accent: #d4ac0d;
-            --accent-hover: #b7950b;
-            --text-main: #2c3e50;
-            --text-muted: #7f8c8d;
-            --border: #e2e8f0;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            --glow: rgba(212, 172, 13, 0.25);
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent: #3498db; /* Edles Sci-Fi-Blau */
+            --accent-hover: #2980b9;
+            --text-main: #f8f9fa;
+            --text-muted: #a0aec0;
+            --border: #2a2a2a;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            --glow: rgba(52, 152, 219, 0.3);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
 
         header {
-            background: #ffffff;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
-            padding: 1.5rem 3rem;
+            padding: 1.2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky; top: 0; z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
-        .logo-area h1 { font-size: 1.8rem; letter-spacing: 1px; text-transform: uppercase; color: #1a202c; }
+        .logo-area h1 { font-size: 1.5rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; }
         .logo-area h1 span { color: var(--accent); }
-        .logo-area p { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.1rem; }
+        .logo-area p { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.1rem; }
 
-        nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        nav { display: flex; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
         nav a:hover { color: var(--accent); }
 
-        .container { width: 100%; max-width: 100%; margin: 0; padding: 2rem 3rem; }
-        section { margin-bottom: 4rem; }
-        h2 { font-size: 2rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; color: #1a202c; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 2.5rem 2rem; }
+        section { margin-bottom: 5rem; }
+        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; font-weight: 700; }
 
+        /* Hero Banner */
         .hero {
-            text-align: center; padding: 4rem 2rem;
-            background: linear-gradient(135deg, #ffffff 0%, #edf2f7 100%);
-            border-radius: 16px; border: 1px solid var(--border); margin-bottom: 3rem;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-bottom: 4rem;
             box-shadow: var(--shadow);
+            min-height: 500px;
+            display: flex;
+            align-items: flex-end;
         }
-        .hero h2 { border-left: none; padding-left: 0; }
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            filter: brightness(0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(18,18,18,0.95) 10%, rgba(18,18,18,0.6) 60%, transparent 100%);
+            width: 100%;
+        }
+        .hero-content h2 { border-left: none; padding-left: 0; font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 700px; }
 
         .btn {
             display: inline-flex; align-items: center; gap: 10px;
-            background-color: var(--accent); color: #ffffff; padding: 0.85rem 2rem;
-            border-radius: 8px; text-decoration: none; font-weight: bold; margin: 0.5rem;
-            transition: background-color 0.2s, transform 0.2s;
-            box-shadow: 0 4px 10px var(--glow);
+            background-color: var(--accent); color: #ffffff; padding: 0.9rem 2.2rem;
+            border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 1rem; margin-bottom: 0.5rem;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px var(--glow);
         }
         .btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
-        .btn-secondary { background-color: transparent; border: 2px solid var(--accent); color: var(--accent); box-shadow: none; }
-        .btn-secondary:hover { background-color: var(--accent); color: #ffffff; }
+        .btn-secondary { background-color: transparent; border: 2px solid var(--accent); color: #ffffff; box-shadow: none; }
+        .btn-secondary:hover { background-color: var(--accent); }
 
-        .grid-gallery {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 12px; padding: 1.2rem; transition: transform 0.2s, box-shadow 0.2s;
+        /* Video Section Layout */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
             box-shadow: var(--shadow);
         }
-        .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
-        .card img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border); }
-        .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #1a202c; }
-
-        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; background: #000; }
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; background: #000; }
         .video-container iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+        .video-info h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .video-info p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.05rem; }
 
+        /* MOC Gallery with Hover Effects */
+        .grid-gallery {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 2rem;
+        }
+        .moc-card {
+            position: relative;
+            background-color: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 14px; overflow: hidden; height: 300px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .moc-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .moc-card img { width: 100%; height: 100%; object-fit: cover; transition: filter 0.3s, transform 0.3s; }
+        .moc-card:hover img { filter: brightness(0.35); transform: scale(1.05); }
+        
+        .moc-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 2rem; opacity: 0; transition: opacity 0.3s ease;
+            background: linear-gradient(to top, rgba(18,18,18,0.9) 10%, rgba(18,18,18,0.4) 70%, transparent 100%);
+        }
+        .moc-card:hover .moc-overlay { opacity: 1; }
+        .moc-overlay h3 { font-size: 1.4rem; margin-bottom: 0.3rem; color: #fff; }
+        .moc-overlay span { color: var(--accent); font-weight: 600; font-size: 0.95rem; }
+
+        .gallery-footer { text-align: center; margin-top: 2.5rem; }
+        .gallery-footer a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 1.05rem; transition: color 0.2s; }
+        .gallery-footer a:hover { color: var(--accent); }
+
+        /* Crew Support Section */
+        .crew-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;
+        }
+        .crew-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; padding: 2.5rem; text-align: center;
+            box-shadow: var(--shadow); transition: transform 0.2s;
+        }
+        .crew-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .crew-icon { font-size: 2.5rem; margin-bottom: 1.2rem; color: var(--accent); }
+        .crew-card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+        .crew-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        /* Contact Form */
+        .contact-box {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; padding: 3rem; max-width: 800px; margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.95rem; }
+        .form-control {
+            width: 100%; padding: 0.9rem 1rem; background: #121212; border: 1px solid var(--border);
+            border-radius: 8px; color: #fff; font-size: 1rem; transition: border-color 0.2s;
+        }
+        .form-control:focus { outline: none; border-color: var(--accent); }
+        textarea.form-control { resize: vertical; min-height: 150px; }
+
+        /* Sub Counter Widget */
         .sub-counter {
             position: fixed; bottom: 25px; right: 25px;
-            background-color: rgba(255, 255, 255, 0.95); border: 1px solid var(--accent);
-            padding: 12px 18px; border-radius: 40px; display: flex; align-items: center; gap: 12px;
-            z-index: 1000; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: rgba(30, 30, 30, 0.95); backdrop-filter: blur(5px);
+            border: 1px solid var(--accent); padding: 12px 20px; border-radius: 40px;
+            display: flex; align-items: center; gap: 12px; z-index: 1000; font-weight: 600;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
-        .pulse-dot { width: 12px; height: 12px; background-color: #e74c3c; border-radius: 50%; animation: slowPulse 2.5s infinite; }
+        .pulse-dot { width: 10px; height: 10px; background-color: #e74c3c; border-radius: 50%; animation: slowPulse 2.5s infinite; }
         @keyframes slowPulse {
             0% { transform: scale(0.95); opacity: 1; }
             70% { transform: scale(1); opacity: 0.8; box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
             100% { transform: scale(0.95); opacity: 1; }
         }
 
-        .paypal-box { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; text-align: center; max-width: 600px; margin: 0 auto; box-shadow: var(--shadow); }
-        .paypal-box img { width: 200px; margin: 1rem auto; display: block; border-radius: 8px; border: 1px solid var(--border); }
+        footer { text-align: center; padding: 2.5rem; border-top: 1px solid var(--border); color: var(--text-muted); background: rgba(18,18,18,0.9); }
 
-        footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); background: #ffffff; }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
-            .container { padding: 1.5rem 1rem; }
+        @media (max-width: 900px) {
+            .video-grid { grid-template-columns: 1fr; gap: 2rem; }
+            header { flex-direction: column; gap: 1rem; text-align: center; padding: 1rem; }
+            .hero-content h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Live Abonnenten Counter -->
     <div class="sub-counter">
         <div class="pulse-dot"></div>
         <span>Abonnenten: <strong>199</strong> aktuell</span>
     </div>
 
+    <!-- Header & Navigation -->
     <header>
         <div class="logo-area">
             <h1>Jungblood <span>Studios</span></h1>
-            <p>Custom LEGO Star Wars MOCs & YouTube Videos</p>
+            <p>LEGO Star Wars MOCs</p>
         </div>
         <nav>
-            <a href="#about">Über mich</a>
-            <a href="#latest-video">Neustes Video</a>
             <a href="#mocs">MOCs & Galerie</a>
-            <a href="#youtube">YouTube</a>
-            <a href="#support">Unterstützen</a>
+            <a href="#latest-video">Neustes Video</a>
+            <a href="#support">Crew werden</a>
+            <a href="#contact">Kontakt</a>
         </nav>
     </header>
 
     <div class="container">
-        <div class="hero">
-            <h2>Willkommen bei Jungblood Studios</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Erlebe detailreiche LEGO Star Wars MOCs, gebaute Galaxien und spannende Bauprojekte hautnah.</p>
-            <div>
-                <a href="https://www.youtube.com/@Jblood.L" target="_blank" class="btn">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    YouTube Kanal
-                </a>
-                <a href="https://ebay.us/m/xefEM5" target="_blank" class="btn btn-secondary">
-                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                    eBay-Shop
-                </a>
-            </div>
-        </div>
-
-        <section id="about">
-            <h2>Über das Projekt</h2>
-            <div class="card">
-                <p>Moin! Ich bin der Kopf hinter Jungblood Studios. Auf meinem YouTube-Kanal präsentiere ich dir regelmäßige Einblicke in meine Custom LEGO Star Wars MOCs (My Own Creation), Zeitraffer-Videos und Shorts. Schau dich um und werde Teil der Community!</p>
+        
+        <!-- 1. Hero-Sektion mit Epischem Banner -->
+        <section class="hero">
+            <!-- Platziere hier den Dateinamen deines besten MOC-Bildes als src -->
+            <img src="1000053172.jpg" alt="Epische LEGO Star Wars MOC Schlachtszene" class="hero-bg">
+            <div class="hero-content">
+                <h2>Maßgeschneiderte LEGO Star Wars MOCs</h2>
+                <p>Erlebe detailreiche Galaxien, epische imperiale Bauwerke und spannende Zeitraffer-Projekte aus einer weit, weit entfernten Galaxis.</p>
+                <div>
+                    <a href="#mocs" class="btn">Zu meinen MOCs</a>
+                    <a href="#contact" class="btn btn-secondary">Projekt anfragen</a>
+                </div>
             </div>
         </section>
 
+        <!-- 2. YouTube-Integration (Social Proof & Neustes Video) -->
         <section id="latest-video">
-            <h2>Neustes Video</h2>
-            <div class="card">
-                <p style="margin-bottom: 1rem; color: var(--text-muted);">Schau dir Videos von meinem YouTube-Kanal direkt hier an:</p>
+            <h2>Frisch aus der Galaxis</h2>
+            <div class="video-grid">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=Jblood.L" title="YouTube Player" allowfullscreen></iframe>
                 </div>
+                <div class="video-info">
+                   <h3>Schau dir mein neuestes Video an</h3>
+                   <p>Verfolge den Bauprozess hautnah, erhalte exklusive Einblicke hinter die Kulissen und werde Teil der Community für wöchentliche Updates direkt von den Bauplatten!</p>
+                   <a href="https://www.youtube.com/@Jblood.L" target="_blank" class="btn">
+                       <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                       YouTube Kanal öffnen
+                   </a>
+                </div>
             </div>
         </section>
 
+        <!-- 3. MOC-Galerie (Top MOCs mit Hover-Effekt) -->
         <section id="mocs">
             <h2>MOCs & Galerie</h2>
             <div class="grid-gallery">
-                <div class="card">
-                    <img src="1000053172.jpg" alt="MOC Gesamtansicht">
-                    <h3>Gesamtansicht des MOCs</h3>
-                </div>
-                <div class="card">
+                
+                <div class="moc-card">
                     <img src="1000057515.jpg" alt="Imperiale Basis Dschungel-Diorama">
-                    <h3>Imperiale Basis im Dschungel</h3>
+                    <div class="moc-overlay">
+                        <h3>Imperiale Basis im Dschungel</h3>
+                        <span>Ca. 35.000 Bricks • 2026</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="1000057516.jpg" alt="Imperiales Tor">
-                    <h3>Das imperiale Tor</h3>
+
+                <div class="moc-card">
+                    <img src="1000053172.jpg" alt="MOC Gesamtansicht">
+                    <div class="moc-overlay">
+                        <h3>Imperiales Haupttor</h3>
+                        <span>Diorama-Projekt • 2026</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="1000057517.jpg" alt="Basis-Schilder">
-                    <h3>Basis-Schilder & Details</h3>
+
+                <div class="moc-card">
+                    <img src="1000057522.jpg" alt="Cantina Szene">
+                    <div class="moc-overlay">
+                        <h3>Cantina & Musikszene</h3>
+                        <span>Detailed Interior • 2025</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="1000057518.jpg" alt="Wandgrafik und Beleuchtung">
-                    <h3>Wandgrafik & Beleuchtung</h3>
-                </div>
-                <div class="card">
-                    <img src="1000057519.jpg" alt="Dschungel Weg und Szenerie">
-                    <h3>Dschungel-Pfade & Leben</h3>
-                </div>
-                <div class="card">
-                    <img src="1000057521.jpg" alt="Aussicht und Skyline Detail">
-                    <h3>Skyline & Umgebung</h3>
-                </div>
-                <div class="card">
-                    <img src="1000057522.jpg" alt="Cantina / Bar Szene">
-                    <h3>Cantina & Musikszene</h3>
-                </div>
-                <div class="card">
-                    <img src="1000057523.jpg" alt="Nahaufnahme Details">
-                    <h3>Nahaufnahme der Details</h3>
-                </div>
-                <div class="card">
-                    <img src="1000057524.jpg" alt="Wanted Plakat Detail">
-                    <h3>Gesucht-Plakate & Wand</h3>
-                </div>
-                <div class="card">
+
+                <div class="moc-card">
                     <img src="1000057525.jpg" alt="Flusslauf Brücke">
-                    <h3>Dschungel-Flusslauf & Brücke</h3>
+                    <div class="moc-overlay">
+                        <h3>Dschungel-Flusslauf</h3>
+                        <span>Landschaftsbau • 2026</span>
+                    </div>
                 </div>
+
+                <div class="moc-card">
+                    <img src="1000057518.jpg" alt="Beleuchtung">
+                    <div class="moc-overlay">
+                        <h3>Wandgrafik & Beleuchtung</h3>
+                        <span>Custom LEDs • 2026</span>
+                    </div>
+                </div>
+
+                <div class="moc-card">
+                    <img src="1000057521.jpg" alt="Skyline Detail">
+                    <div class="moc-overlay">
+                        <h3>Skyline & Umgebung</h3>
+                        <span>Hintergrund-Design</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="gallery-footer">
+                <a href="https://www.youtube.com/@Jblood.L" target="_blank">Mehr MOCs & Einblicke auf YouTube ansehen &rarr;</a>
             </div>
         </section>
 
+        <!-- 4. Unterstützer-Zone ("Werdet Teil der Crew") -->
         <section id="support">
-            <h2>Kanal unterstützen</h2>
-            <div class="paypal-box">
-                <p style="color: var(--text-muted);">Wenn dir meine MOCs und Videos gefallen, kannst du mich hier unkompliziert per PayPal unterstützen:</p>
-                <img src="1000057514.jpg" alt="PayPal QR-Code Linus Jungbluth">
-                <a href="https://www.paypal.com" target="_blank" class="btn" style="margin-top: 1rem; font-size: 0.95rem;">
-                    Direkt per PayPal Link
-                </a>
+            <h2>Werdet Teil der Crew</h2>
+            <div class="crew-grid">
+                
+                <div class="crew-card">
+                    <div class="crew-icon">⭐</div>
+                    <h3>Kanalmitgliedschaft</h3>
+                    <p>Exklusiver Content – Erhalte vorab Baupläne, stimme über nächste Projekte ab und sieh Behind-the-Scenes-Material.</p>
+                    <a href="https://www.youtube.com/@Jblood.L" target="_blank" class="btn btn-secondary" style="margin: 0; width: 100%; justify-content: center;">Mitglied werden</a>
+                </div>
+
+                <div class="crew-card">
+                    <div class="crew-icon">🧱</div>
+                    <h3>Direkter Stein-Nachschub</h3>
+                    <p>Unterstütze das Projekt unkompliziert per PayPal. Jeder Euro fließt direkt in neue Klemmbausteine für das nächste Großprojekt.</p>
+                    <a href="https://www.paypal.com" target="_blank" class="btn" style="margin: 0; width: 100%; justify-content: center;">Unterstützen</a>
+                </div>
+
             </div>
         </section>
+
+        <!-- 5. Kooperations- & Kontaktformular -->
+        <section id="contact">
+            <div class="contact-box">
+                <h2 style="border-left: none; padding-left: 0; text-align: center; margin-bottom: 2rem;">Projektanfragen & Kooperationen</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name / Unternehmen</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Dein Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail-Adresse</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="deine.email@beispiel.de" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject-type">Anfrageart</label>
+                        <select id="subject-type" name="subject-type" class="form-control">
+                            <option value="cooperation">Kooperationsanfrage</option>
+                            <option value="moc-order">MOC-Auftragsarbeit</option>
+                            <option value="feedback">Allgemeines Feedback</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Deine Nachricht</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Schreib mir dein Anliegen..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; justify-content: center; margin: 0; cursor: pointer; border: none;">Nachricht absenden</button>
+                </form>
+            </div>
+        </section>
+
     </div>
 
     <footer>
