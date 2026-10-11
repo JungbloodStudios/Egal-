@@ -9,7 +9,7 @@
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
-            --accent: #3498db; /* Edles Sci-Fi-Blau */
+            --accent: #3498db;
             --accent-hover: #2980b9;
             --text-main: #f8f9fa;
             --text-muted: #a0aec0;
@@ -96,8 +96,6 @@
             padding: 2.5rem;
             box-shadow: var(--shadow);
         }
-        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; background: #000; }
-        .video-container iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
         .video-info h3 { font-size: 1.8rem; margin-bottom: 1rem; }
         .video-info p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.05rem; }
 
@@ -209,7 +207,6 @@
         
         <!-- 1. Hero-Sektion mit Epischem Banner -->
         <section class="hero">
-            <!-- Platziere hier den Dateinamen deines besten MOC-Bildes als src -->
             <img src="1000053172.jpg" alt="Epische LEGO Star Wars MOC Schlachtszene" class="hero-bg">
             <div class="hero-content">
                 <h2>Maßgeschneiderte LEGO Star Wars MOCs</h2>
@@ -221,12 +218,16 @@
             </div>
         </section>
 
-        <!-- 2. YouTube-Integration (Social Proof & Neustes Video) -->
+        <!-- 2. YouTube-Integration -->
         <section id="latest-video">
             <h2>Frisch aus der Galaxis</h2>
             <div class="video-grid">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=Jblood.L" title="YouTube Player" allowfullscreen></iframe>
+                <div style="background: #1a1a1a; border-radius: 12px; min-height: 250px; text-align: center; padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1.3rem;">Kanal auf YouTube besuchen</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; max-width: 450px;">Sieh dir meine neuesten Videos, MOC-Shorts und Bau-Updates direkt auf YouTube an.</p>
+                    <a href="https://www.youtube.com/@Jblood.L" target="_blank" class="btn" style="margin: 0;">
+                        Neuestes Video auf YouTube ansehen
+                    </a>
                 </div>
                 <div class="video-info">
                    <h3>Schau dir mein neuestes Video an</h3>
@@ -239,24 +240,24 @@
             </div>
         </section>
 
-        <!-- 3. MOC-Galerie (Top MOCs mit Hover-Effekt) -->
+        <!-- 3. MOC-Galerie -->
         <section id="mocs">
             <h2>MOCs & Galerie</h2>
             <div class="grid-gallery">
                 
                 <div class="moc-card">
-                    <img src="1000057515.jpg" alt="Imperiale Basis Dschungel-Diorama">
+                    <img src="1000053172.jpg" alt="MOC Gesamtansicht">
                     <div class="moc-overlay">
-                        <h3>Imperiale Basis im Dschungel</h3>
-                        <span>Ca. 35.000 Bricks • 2026</span>
+                        <h3>Gesamtansicht des MOCs</h3>
+                        <span>Diorama-Projekt</span>
                     </div>
                 </div>
 
                 <div class="moc-card">
-                    <img src="1000053172.jpg" alt="MOC Gesamtansicht">
+                    <img src="1000057516.jpg" alt="Imperiales Tor">
                     <div class="moc-overlay">
-                        <h3>Imperiales Haupttor</h3>
-                        <span>Diorama-Projekt • 2026</span>
+                        <h3>Das imperiale Tor</h3>
+                        <span>Custom Build</span>
                     </div>
                 </div>
 
@@ -264,7 +265,7 @@
                     <img src="1000057522.jpg" alt="Cantina Szene">
                     <div class="moc-overlay">
                         <h3>Cantina & Musikszene</h3>
-                        <span>Detailed Interior • 2025</span>
+                        <span>Detailed Interior</span>
                     </div>
                 </div>
 
@@ -272,7 +273,7 @@
                     <img src="1000057525.jpg" alt="Flusslauf Brücke">
                     <div class="moc-overlay">
                         <h3>Dschungel-Flusslauf</h3>
-                        <span>Landschaftsbau • 2026</span>
+                        <span>Landschaftsbau</span>
                     </div>
                 </div>
 
@@ -280,7 +281,7 @@
                     <img src="1000057518.jpg" alt="Beleuchtung">
                     <div class="moc-overlay">
                         <h3>Wandgrafik & Beleuchtung</h3>
-                        <span>Custom LEDs • 2026</span>
+                        <span>Custom LEDs</span>
                     </div>
                 </div>
 
@@ -298,7 +299,7 @@
             </div>
         </section>
 
-        <!-- 4. Unterstützer-Zone ("Werdet Teil der Crew") -->
+        <!-- 4. Unterstützer-Zone -->
         <section id="support">
             <h2>Werdet Teil der Crew</h2>
             <div class="crew-grid">
@@ -313,8 +314,9 @@
                 <div class="crew-card">
                     <div class="crew-icon">🧱</div>
                     <h3>Direkter Stein-Nachschub</h3>
-                    <p>Unterstütze das Projekt unkompliziert per PayPal. Jeder Euro fließt direkt in neue Klemmbausteine für das nächste Großprojekt.</p>
-                    <a href="https://www.paypal.com" target="_blank" class="btn" style="margin: 0; width: 100%; justify-content: center;">Unterstützen</a>
+                    <p>Unterstütze das Projekt unkompliziert per PayPal oder scanne direkt den QR-Code:</p>
+                    <img src="1000057514.jpg" alt="PayPal QR-Code" style="width: 180px; height: auto; border-radius: 8px; margin: 1rem auto; display: block; border: 1px solid var(--border);">
+                    <a href="https://www.paypal.com" target="_blank" class="btn" style="margin: 0; width: 100%; justify-content: center;">Direkt per PayPal</a>
                 </div>
 
             </div>
@@ -324,21 +326,21 @@
         <section id="contact">
             <div class="contact-box">
                 <h2 style="border-left: none; padding-left: 0; text-align: center; margin-bottom: 2rem;">Projektanfragen & Kooperationen</h2>
-                <form action="#" method="POST">
+                <form action="https://formspree.io/f/moejlngo" method="POST">
                     <div class="form-group">
                         <label for="name">Name / Unternehmen</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Dein Name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">E-Mail-Adresse</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="deine.email@beispiel.de" required>
+                        <input type="email" id="email" name="_replyto" class="form-control" placeholder="deine.email@beispiel.de" required>
                     </div>
                     <div class="form-group">
                         <label for="subject-type">Anfrageart</label>
                         <select id="subject-type" name="subject-type" class="form-control">
-                            <option value="cooperation">Kooperationsanfrage</option>
-                            <option value="moc-order">MOC-Auftragsarbeit</option>
-                            <option value="feedback">Allgemeines Feedback</option>
+                            <option value="Kooperationsanfrage">Kooperationsanfrage</option>
+                            <option value="MOC-Auftragsarbeit">MOC-Auftragsarbeit</option>
+                            <option value="Allgemeines Feedback">Allgemeines Feedback</option>
                         </select>
                     </div>
                     <div class="form-group">
