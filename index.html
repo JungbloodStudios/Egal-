@@ -102,7 +102,7 @@
         .video-info h3 { font-size: 1.6rem; margin-bottom: 0.8rem; }
         .video-info p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem; }
 
-        /* Horizontaler Scroll-Slider für die MOC-Galerie auf Mobilgeräten */
+        /* MOC-Galerie */
         .grid-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -146,7 +146,7 @@
         .chart-container {
             position: relative;
             width: 100%;
-            height: 350px;
+            height: 380px;
         }
 
         /* Crew Support Section */
@@ -195,7 +195,6 @@
 
         footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); background: rgba(18,18,18,0.9); font-size: 0.9rem; }
 
-        /* MOBILE MEDIA QUERIES & OPTIMIERUNGEN */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -204,7 +203,6 @@
                 gap: 0.6rem;
             }
 
-            /* Einzeiliges, horizontal scrollbares Menü auf Smartphones */
             nav {
                 width: 100%;
                 overflow-x: auto;
@@ -213,9 +211,9 @@
                 gap: 1.2rem;
                 padding-bottom: 4px;
                 -webkit-overflow-scrolling: touch;
-                scrollbar-width: none; /* Firefox */
+                scrollbar-width: none;
             }
-            nav::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+            nav::-webkit-scrollbar { display: none; }
 
             .container { padding: 1.2rem 1rem; }
             .hero { min-height: 350px; }
@@ -225,7 +223,6 @@
 
             .video-grid { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.2rem; }
 
-            /* MOC Galerie als horizontaler Scroll-Slider auf dem Handy */
             .grid-gallery {
                 display: flex;
                 overflow-x: auto;
@@ -244,7 +241,7 @@
                 background: linear-gradient(to top, rgba(18,18,18,0.9) 20%, transparent 100%);
             }
 
-            .chart-container { height: 260px; }
+            .chart-container { height: 280px; }
             .contact-box { padding: 1.5rem; }
             .sub-counter { bottom: 15px; right: 15px; padding: 8px 14px; font-size: 0.8rem; }
         }
@@ -264,11 +261,10 @@
             <h1>Jungblood <span>Studios</span></h1>
             <p>LEGO Star Wars MOCs</p>
         </div>
-        <!-- Menü in einer Zeile (auf Handy horizontal scrollbar) -->
         <nav>
             <a href="#mocs">MOCs & Galerie</a>
             <a href="#latest-video">Neustes Video</a>
-            <a href="#analytics">Kanal-Wachstum</a>
+            <a href="#analytics">Dauer der Bearbeitung</a>
             <a href="#support">Crew werden</a>
             <a href="#contact">Kontakt</a>
         </nav>
@@ -276,7 +272,7 @@
 
     <div class="container">
         
-        <!-- 1. Hero-Sektion mit Epischem Banner -->
+        <!-- 1. Hero-Sektion -->
         <section class="hero">
             <img src="1000053172.jpg" alt="Epische LEGO Star Wars MOC Schlachtszene" class="hero-bg">
             <div class="hero-content">
@@ -289,7 +285,7 @@
             </div>
         </section>
 
-        <!-- 2. YouTube-Integration (Echtes eingebettetes Video) -->
+        <!-- 2. YouTube-Integration -->
         <section id="latest-video">
             <h2>Frisch aus der Galaxis</h2>
             <div class="video-grid">
@@ -307,7 +303,7 @@
             </div>
         </section>
 
-        <!-- 3. MOC-Galerie (Scroll-Slider auf dem Handy) -->
+        <!-- 3. MOC-Galerie -->
         <section id="mocs">
             <h2>MOCs & Galerie</h2>
             <div class="grid-gallery">
@@ -366,12 +362,12 @@
             </div>
         </section>
 
-        <!-- 4. Interaktives Graphen-Diagramm (Kanal-Wachstum) -->
+        <!-- 4. Interaktives Graphen-Diagramm (Dauer der Bearbeitung) -->
         <section id="analytics">
-            <h2>Kanal-Entwicklung & Meilensteine</h2>
+            <h2>Dauer der Bearbeitung</h2>
             <div class="chart-box">
                 <div class="chart-container">
-                    <canvas id="growthChart"></canvas>
+                    <canvas id="durationChart"></canvas>
                 </div>
             </div>
         </section>
@@ -435,37 +431,108 @@
         <p>&copy; 2026 Jungblood Studios. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- Interaktives Diagramm Script -->
+    <!-- Interaktives Diagramm Script für "Dauer der Bearbeitung" -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const ctx = document.getElementById('growthChart').getContext('2d');
-            
-            // Gradient Füllung
-            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-            gradient.addColorStop(0, 'rgba(52, 152, 219, 0.4)');
-            gradient.addColorStop(1, 'rgba(52, 152, 219, 0.0)');
+            const ctx = document.getElementById('durationChart').getContext('2d');
 
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Okt 2021', 'Okt 2022', 'Okt 2023', 'Okt 2024', 'Okt 2025', 'Aktuell (2026)'],
-                    datasets: [{
-                        label: 'Abonnenten-Entwicklung',
-                        data: [10, 35, 75, 120, 160, 199],
-                        borderColor: '#3498db',
-                        borderWidth: 3,
-                        backgroundColor: gradient,
-                        fill: true,
-                        tension: 0.35,
-                        pointBackgroundColor: '#3498db',
-                        pointBorderColor: '#ffffff',
-                        pointHoverRadius: 7,
-                        pointRadius: 5
-                    }]
+                    labels: ['2021', '2022', '2022.5', '2023.4', '2024.35', '2026.4', '2027'],
+                    datasets: [
+                        {
+                            label: 'MoC 1',
+                            data: [
+                                {x: 2021, y: 0},
+                                {x: 2022.5, y: 1.0},
+                                {x: 2022.5, y: 0}
+                            ],
+                            borderColor: '#1d3557',
+                            backgroundColor: '#1d3557',
+                            borderWidth: 3,
+                            pointRadius: [5, 6, 4],
+                            tension: 0
+                        },
+                        {
+                            label: 'MoC 2',
+                            data: [
+                                {x: 2022.5, y: 0},
+                                {x: 2023.4, y: 0.75},
+                                {x: 2023.4, y: 0}
+                            ],
+                            borderColor: '#e76f51',
+                            backgroundColor: '#e76f51',
+                            borderWidth: 3,
+                            pointRadius: [4, 6, 4],
+                            tension: 0
+                        },
+                        {
+                            label: 'MoC 3',
+                            data: [
+                                {x: 2023.4, y: 0},
+                                {x: 2024.35, y: 0.5},
+                                {x: 2024.35, y: 0}
+                            ],
+                            borderColor: '#81b29a',
+                            backgroundColor: '#81b29a',
+                            borderWidth: 3,
+                            pointRadius: [4, 6, 4],
+                            tension: 0
+                        },
+                        {
+                            label: 'MoC 4',
+                            data: [
+                                {x: 2024.35, y: 0},
+                                {x: 2026.4, y: 2.5}
+                            ],
+                            borderColor: '#e63946',
+                            backgroundColor: '#e63946',
+                            borderWidth: 3,
+                            pointRadius: [4, 6],
+                            tension: 0
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            min: 2021,
+                            max: 2027,
+                            ticks: {
+                                stepSize: 1,
+                                color: '#a0aec0',
+                                callback: function(value) {
+                                    return Math.floor(value);
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Datum',
+                                color: '#f8f9fa',
+                                font: { family: 'Inter', size: 14 }
+                            },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        },
+                        y: {
+                            min: 0,
+                            max: 4.0,
+                            ticks: {
+                                stepSize: 0.5,
+                                color: '#a0aec0'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Dauer (Jahre)',
+                                color: '#f8f9fa',
+                                font: { family: 'Inter', size: 14 }
+                            },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        }
+                    },
                     plugins: {
                         legend: {
                             labels: { color: '#f8f9fa', font: { family: 'Inter', size: 13 } }
@@ -477,17 +544,11 @@
                             borderColor: '#2a2a2a',
                             borderWidth: 1,
                             padding: 12,
-                            displayColors: false
-                        }
-                    },
-                    scales: {
-                        x: {
-                            ticks: { color: '#a0aec0' },
-                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
-                        },
-                        y: {
-                            ticks: { color: '#a0aec0' },
-                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ' – Dauer: ' + context.parsed.y + ' Jahre';
+                                }
+                            }
                         }
                     }
                 }
