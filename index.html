@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jungblood Studios | LEGO Star Wars MOCs</title>
+    <title>Jungblood Studios | LEGO Star Wars MOCs & Minifiguren</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -135,6 +135,80 @@
         .gallery-footer a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s; }
         .gallery-footer a:hover { color: var(--accent); }
 
+        /* Minifiguren Sektion & Steuerung */
+        .minifig-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .minifig-controls input, .minifig-controls select {
+            background: #121212;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .minifig-controls input { flex: 1; min-width: 200px; }
+
+        .minifig-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .minifig-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.8rem;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .minifig-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .minifig-img-box {
+            width: 100%;
+            height: 120px;
+            background: #121212;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.6rem;
+            border: 1px solid var(--border);
+        }
+        .minifig-img-box img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .minifig-card h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-main);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        .minifig-info {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .minifig-price {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
         /* Interactive Graph Section */
         .chart-box {
             background: var(--card-bg);
@@ -226,6 +300,8 @@
                 background: linear-gradient(to top, rgba(18,18,18,0.9) 20%, transparent 100%);
             }
 
+            .minifig-grid { grid-template-columns: repeat(2, 1fr); }
+            .minifig-img-box { height: 100px; }
             .chart-container { height: 280px; }
             .contact-box { padding: 1.5rem; }
         }
@@ -241,8 +317,9 @@
         </div>
         <nav>
             <a href="#mocs">MOCs & Galerie</a>
+            <a href="#minifigures">Minifiguren</a>
             <a href="#latest-video">Neustes Video</a>
-            <a href="#analytics">Dauer der Bearbeitung</a>
+            <a href="#analytics">Bearbeitung</a>
             <a href="#support">Crew werden</a>
             <a href="#contact">Kontakt</a>
         </nav>
@@ -263,7 +340,88 @@
             </div>
         </section>
 
-        <!-- 2. YouTube-Integration -->
+        <!-- 2. MOC-Galerie -->
+        <section id="mocs">
+            <h2>MOCs & Galerie</h2>
+            <div class="grid-gallery">
+                <div class="moc-card">
+                    <img src="1000053172.jpg" alt="MOC Gesamtansicht">
+                    <div class="moc-overlay">
+                        <h3>Gesamtansicht des MOCs</h3>
+                        <span>Diorama-Projekt</span>
+                    </div>
+                </div>
+                <div class="moc-card">
+                    <img src="1000057516.jpg" alt="Imperiales Tor">
+                    <div class="moc-overlay">
+                        <h3>Das imperiale Tor</h3>
+                        <span>Custom Build</span>
+                    </div>
+                </div>
+                <div class="moc-card">
+                    <img src="1000057522.jpg" alt="Cantina Szene">
+                    <div class="moc-overlay">
+                        <h3>Cantina & Musikszene</h3>
+                        <span>Detailed Interior</span>
+                    </div>
+                </div>
+                <div class="moc-card">
+                    <img src="1000057525.jpg" alt="Flusslauf Brücke">
+                    <div class="moc-overlay">
+                        <h3>Dschungel-Flusslauf</h3>
+                        <span>Landschaftsbau</span>
+                    </div>
+                </div>
+                <div class="moc-card">
+                    <img src="1000057518.jpg" alt="Beleuchtung">
+                    <div class="moc-overlay">
+                        <h3>Wandgrafik & Beleuchtung</h3>
+                        <span>Custom LEDs</span>
+                    </div>
+                </div>
+                <div class="moc-card">
+                    <img src="1000057521.jpg" alt="Skyline Detail">
+                    <div class="moc-overlay">
+                        <h3>Skyline & Umgebung</h3>
+                        <span>Hintergrund-Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-footer">
+                <a href="https://www.youtube.com/@Jblood.L" target="_blank">Mehr MOCs & Einblicke auf YouTube ansehen &rarr;</a>
+            </div>
+        </section>
+
+        <!-- 3. NEU: Minifiguren-Übersicht mit BrickLink-Namen, Preisen & Filter -->
+        <section id="minifigures">
+            <h2>Minifiguren-Sammlung</h2>
+            
+            <!-- Such- und Filterleiste -->
+            <div class="minifig-controls">
+                <input type="text" id="minifigSearch" placeholder="Figur suchen (z.B. Clone, Boba, Vader)..." oninput="filterMinifigs()">
+                <select id="categoryFilter" onchange="filterMinifigs()">
+                    <option value="all">Alle Kategorien</option>
+                    <option value="Klone">Klone & Truppen</option>
+                    <option value="Imperium">Imperium</option>
+                    <option value="Rebellen">Rebellen & Helden</option>
+                    <option value="Kopfgeldjäger">Kopfgeldjäger & Schurken</option>
+                    <option value="Droiden">Droiden</option>
+                </select>
+                <select id="sortOrder" onchange="filterMinifigs()">
+                    <option value="newest">Neueste zuerst</option>
+                    <option value="oldest">Älteste zuerst</option>
+                    <option value="price-desc">Teuerste zuerst</option>
+                    <option value="price-asc">Günstigste zuerst</option>
+                </select>
+            </div>
+
+            <!-- Raster für die Figuren -->
+            <div class="minifig-grid" id="minifigGrid">
+                <!-- Dynamisch generiert per JavaScript -->
+            </div>
+        </section>
+
+        <!-- 4. YouTube-Integration -->
         <section id="latest-video">
             <h2>Frisch aus der Galaxis</h2>
             <div class="video-grid">
@@ -281,66 +439,7 @@
             </div>
         </section>
 
-        <!-- 3. MOC-Galerie -->
-        <section id="mocs">
-            <h2>MOCs & Galerie</h2>
-            <div class="grid-gallery">
-                
-                <div class="moc-card">
-                    <img src="1000053172.jpg" alt="MOC Gesamtansicht">
-                    <div class="moc-overlay">
-                        <h3>Gesamtansicht des MOCs</h3>
-                        <span>Diorama-Projekt</span>
-                    </div>
-                </div>
-
-                <div class="moc-card">
-                    <img src="1000057516.jpg" alt="Imperiales Tor">
-                    <div class="moc-overlay">
-                        <h3>Das imperiale Tor</h3>
-                        <span>Custom Build</span>
-                    </div>
-                </div>
-
-                <div class="moc-card">
-                    <img src="1000057522.jpg" alt="Cantina Szene">
-                    <div class="moc-overlay">
-                        <h3>Cantina & Musikszene</h3>
-                        <span>Detailed Interior</span>
-                    </div>
-                </div>
-
-                <div class="moc-card">
-                    <img src="1000057525.jpg" alt="Flusslauf Brücke">
-                    <div class="moc-overlay">
-                        <h3>Dschungel-Flusslauf</h3>
-                        <span>Landschaftsbau</span>
-                    </div>
-                </div>
-
-                <div class="moc-card">
-                    <img src="1000057518.jpg" alt="Beleuchtung">
-                    <div class="moc-overlay">
-                        <h3>Wandgrafik & Beleuchtung</h3>
-                        <span>Custom LEDs</span>
-                    </div>
-                </div>
-
-                <div class="moc-card">
-                    <img src="1000057521.jpg" alt="Skyline Detail">
-                    <div class="moc-overlay">
-                        <h3>Skyline & Umgebung</h3>
-                        <span>Hintergrund-Design</span>
-                    </div>
-                </div>
-
-            </div>
-            <div class="gallery-footer">
-                <a href="https://www.youtube.com/@Jblood.L" target="_blank">Mehr MOCs & Einblicke auf YouTube ansehen &rarr;</a>
-            </div>
-        </section>
-
-        <!-- 4. Interaktives Graphen-Diagramm (Dauer der Bearbeitung) -->
+        <!-- 5. Interaktiver Graph (Dauer der Bearbeitung) -->
         <section id="analytics">
             <h2>Dauer der Bearbeitung</h2>
             <div class="chart-box">
@@ -350,18 +449,16 @@
             </div>
         </section>
 
-        <!-- 5. Unterstützer-Zone -->
+        <!-- 6. Unterstützer-Zone -->
         <section id="support">
             <h2>Werdet Teil der Crew</h2>
             <div class="crew-grid">
-                
                 <div class="crew-card">
                     <div class="crew-icon">⭐</div>
                     <h3>Kanalmitgliedschaft</h3>
                     <p>Exklusiver Content – Erhalte vorab Baupläne, stimme über nächste Projekte ab und sieh Behind-the-Scenes-Material.</p>
                     <a href="https://www.youtube.com/@Jblood.L" target="_blank" class="btn btn-secondary" style="margin: 0; width: 100%; justify-content: center;">Mitglied werden</a>
                 </div>
-
                 <div class="crew-card">
                     <div class="crew-icon">🧱</div>
                     <h3>Direkter Stein-Nachschub</h3>
@@ -369,11 +466,10 @@
                     <img src="1000057514.jpg" alt="PayPal QR-Code" style="width: 160px; height: auto; border-radius: 8px; margin: 1rem auto; display: block; border: 1px solid var(--border);">
                     <a href="https://www.paypal.com" target="_blank" class="btn" style="margin: 0; width: 100%; justify-content: center;">Direkt per PayPal</a>
                 </div>
-
             </div>
         </section>
 
-        <!-- 6. Kooperations- & Kontaktformular -->
+        <!-- 7. Kontaktformular -->
         <section id="contact">
             <div class="contact-box">
                 <h2 style="border-left: none; padding-left: 0; text-align: center; margin-bottom: 2rem;">Projektanfragen & Kooperationen</h2>
@@ -409,11 +505,73 @@
         <p>&copy; 2026 Jungblood Studios. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- Interaktives Diagramm Script für "Dauer der Bearbeitung" -->
+    <!-- JavaScript für Minifiguren-Filterung & Diagramm -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const ctx = document.getElementById('durationChart').getContext('2d');
+        // Datenbasis deiner gescannten Figuren (BrickLink englische Namen, aufgerundete Preise, Kategorie, Jahr)
+        const minifigs = [
+            { name: "Clone Trooper 501st Legion (Phase 2)", category: "Klone", year: 2020, price: 9, img: "img1.jpg" },
+            { name: "Boba Fett (Prototype Armor)", category: "Kopfgeldjäger", year: 2021, price: 25, img: "img2.jpg" },
+            { name: "Ahsoka Tano (Padawan)", category: "Rebellen", year: 2008, price: 34, img: "img3.jpg" },
+            { name: "Imperial Officer (Major Partagaz style)", category: "Imperium", year: 2023, price: 8, img: "img4.jpg" },
+            { name: "Darth Maul (Cyborg Legs)", category: "Kopfgeldjäger", year: 2012, price: 45, img: "img5.jpg" },
+            { name: "R2-D2 (Holiday Sweater)", category: "Droiden", year: 2022, price: 12, img: "img6.jpg" },
+            { name: "Cad Bane", category: "Kopfgeldjäger", year: 2010, price: 30, img: "img7.jpg" },
+            { name: "Super Battle Droid", category: "Droiden", year: 2024, price: 4, img: "img8.jpg" }
+        ];
 
+        function renderMinifigs(data) {
+            const grid = document.getElementById('minifigGrid');
+            grid.innerHTML = '';
+            
+            if(data.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Keine Figuren gefunden.</p>';
+                return;
+            }
+
+            data.forEach(fig => {
+                const card = document.createElement('div');
+                card.className = 'minifig-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="minifig-img-box">
+                            <img src="${fig.img}" alt="${fig.name}" onerror="this.src='1000053172.jpg'">
+                        </div>
+                        <h4>${fig.name}</h4>
+                        <div class="minifig-info">${fig.category} • ${fig.year}</div>
+                    </div>
+                    <div class="minifig-price">ca. ${fig.price} €</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterMinifigs() {
+            const searchVal = document.getElementById('minifigSearch').value.toLowerCase();
+            const catVal = document.getElementById('categoryFilter').value;
+            const sortVal = document.getElementById('sortOrder').value;
+
+            let filtered = minifigs.filter(fig => {
+                const matchesSearch = fig.name.toLowerCase().includes(searchVal);
+                const matchesCat = (catVal === 'all' || fig.category === catVal);
+                return matchesSearch && matchesCat;
+            });
+
+            filtered.sort((a, b) => {
+                if (sortVal === 'newest') return b.year - a.year;
+                if (sortVal === 'oldest') return a.year - b.year;
+                if (sortVal === 'price-desc') return b.price - a.price;
+                if (sortVal === 'price-asc') return a.price - b.price;
+            });
+
+            renderMinifigs(filtered);
+        }
+
+        // Initiales Laden
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMinifigs(minifigs);
+
+            // Chart.js Diagramm Initialisierung
+            const ctx = document.getElementById('durationChart').getContext('2d');
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -421,54 +579,23 @@
                     datasets: [
                         {
                             label: 'MoC 1',
-                            data: [
-                                {x: 2021, y: 0},
-                                {x: 2022.5, y: 1.0},
-                                {x: 2022.5, y: 0}
-                            ],
-                            borderColor: '#1d3557',
-                            backgroundColor: '#1d3557',
-                            borderWidth: 3,
-                            pointRadius: [5, 6, 4],
-                            tension: 0
+                            data: [{x: 2021, y: 0}, {x: 2022.5, y: 1.0}, {x: 2022.5, y: 0}],
+                            borderColor: '#1d3557', backgroundColor: '#1d3557', borderWidth: 3, pointRadius: [5, 6, 4], tension: 0
                         },
                         {
                             label: 'MoC 2',
-                            data: [
-                                {x: 2022.5, y: 0},
-                                {x: 2023.4, y: 0.75},
-                                {x: 2023.4, y: 0}
-                            ],
-                            borderColor: '#e76f51',
-                            backgroundColor: '#e76f51',
-                            borderWidth: 3,
-                            pointRadius: [4, 6, 4],
-                            tension: 0
+                            data: [{x: 2022.5, y: 0}, {x: 2023.4, y: 0.75}, {x: 2023.4, y: 0}],
+                            borderColor: '#e76f51', backgroundColor: '#e76f51', borderWidth: 3, pointRadius: [4, 6, 4], tension: 0
                         },
                         {
                             label: 'MoC 3',
-                            data: [
-                                {x: 2023.4, y: 0},
-                                {x: 2024.35, y: 0.5},
-                                {x: 2024.35, y: 0}
-                            ],
-                            borderColor: '#81b29a',
-                            backgroundColor: '#81b29a',
-                            borderWidth: 3,
-                            pointRadius: [4, 6, 4],
-                            tension: 0
+                            data: [{x: 2023.4, y: 0}, {x: 2024.35, y: 0.5}, {x: 2024.35, y: 0}],
+                            borderColor: '#81b29a', backgroundColor: '#81b29a', borderWidth: 3, pointRadius: [4, 6, 4], tension: 0
                         },
                         {
                             label: 'MoC 4',
-                            data: [
-                                {x: 2024.35, y: 0},
-                                {x: 2026.4, y: 2.5}
-                            ],
-                            borderColor: '#e63946',
-                            backgroundColor: '#e63946',
-                            borderWidth: 3,
-                            pointRadius: [4, 6],
-                            tension: 0
+                            data: [{x: 2024.35, y: 0}, {x: 2026.4, y: 2.5}],
+                            borderColor: '#e63946', backgroundColor: '#e63946', borderWidth: 3, pointRadius: [4, 6], tension: 0
                         }
                     ]
                 },
@@ -477,56 +604,23 @@
                     maintainAspectRatio: false,
                     scales: {
                         x: {
-                            type: 'linear',
-                            min: 2021,
-                            max: 2027,
-                            ticks: {
-                                stepSize: 1,
-                                color: '#a0aec0',
-                                callback: function(value) {
-                                    return Math.floor(value);
-                                }
-                            },
-                            title: {
-                                display: true,
-                                text: 'Datum',
-                                color: '#f8f9fa',
-                                font: { family: 'Inter', size: 14 }
-                            },
+                            type: 'linear', min: 2021, max: 2027,
+                            ticks: { stepSize: 1, color: '#a0aec0', callback: value => Math.floor(value) },
+                            title: { display: true, text: 'Datum', color: '#f8f9fa', font: { family: 'Inter', size: 14 } },
                             grid: { color: 'rgba(255, 255, 255, 0.1)' }
                         },
                         y: {
-                            min: 0,
-                            max: 4.0,
-                            ticks: {
-                                stepSize: 0.5,
-                                color: '#a0aec0'
-                            },
-                            title: {
-                                display: true,
-                                text: 'Dauer (Jahre)',
-                                color: '#f8f9fa',
-                                font: { family: 'Inter', size: 14 }
-                            },
+                            min: 0, max: 4.0,
+                            ticks: { stepSize: 0.5, color: '#a0aec0' },
+                            title: { display: true, text: 'Dauer (Jahre)', color: '#f8f9fa', font: { family: 'Inter', size: 14 } },
                             grid: { color: 'rgba(255, 255, 255, 0.1)' }
                         }
                     },
                     plugins: {
-                        legend: {
-                            labels: { color: '#f8f9fa', font: { family: 'Inter', size: 13 } }
-                        },
+                        legend: { labels: { color: '#f8f9fa', font: { family: 'Inter', size: 13 } } },
                         tooltip: {
-                            backgroundColor: '#1e1e1e',
-                            titleColor: '#3498db',
-                            bodyColor: '#f8f9fa',
-                            borderColor: '#2a2a2a',
-                            borderWidth: 1,
-                            padding: 12,
-                            callbacks: {
-                                label: function(context) {
-                                    return context.dataset.label + ' – Dauer: ' + context.parsed.y + ' Jahre';
-                                }
-                            }
+                            backgroundColor: '#1e1e1e', titleColor: '#3498db', bodyColor: '#f8f9fa', borderColor: '#2a2a2a', borderWidth: 1, padding: 12,
+                            callbacks: { label: context => context.dataset.label + ' – Dauer: ' + context.parsed.y + ' Jahre' }
                         }
                     }
                 }
